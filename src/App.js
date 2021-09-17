@@ -10,7 +10,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 function App() {
 
-  const [chatList, setChatList] = useState([{}, {}, {}, {}])
+  const [chatList, setChatList] = useState([{}, {}, {}, {}, {}, {}, {}, {}])
 
   return (
     <div className="app-window">

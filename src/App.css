@@ -67,6 +67,19 @@ header {
   margin-left: 10px;
 }
 
+.chatlist {
+  background-color: #fff;
+  flex: 1;
+  overflow-y: auto;
+}
+.chatlist::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.chatlist::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 
 .contentarea {
 
