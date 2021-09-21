@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './ChatWindow.css';
+import EmojiPicker from 'emoji-picker-react';
 
 import SearchIcon from '@material-ui/icons/Search';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
@@ -10,6 +11,22 @@ import SendIcon from '@mui/icons-material/Send';
 import MicIcon from '@mui/icons-material/Mic';
 
 export default() => {
+
+    const [emojiOpen, setEmojiOpen] = useState(false);
+
+    const handleEmojiClick = () => {
+
+    };
+
+    const handleEmojiOpen = () => {
+        setEmojiOpen(true)
+    };
+
+    const handleEmojiClose = () => {
+        setEmojiOpen(false)
+    };
+
+
     return (
         <div className="chatWindow">
             <div className="chatWindow--header">
@@ -36,12 +53,31 @@ export default() => {
             </div>
             <div className="chatWindow--body"></div>
 
+            <div className="chatWindow--emojiarea"
+                style={{height: emojiOpen ? '200px' : '0px'}}>
+                <EmojiPicker
+                    onEmojiClick={handleEmojiClick}
+                    disableSearchBar
+                    disableSkinTonePicker
+                />
+            </div>
             <div className="chatWindow--footer">
 
                 <div className="chatWindow--pre">
 
-                    <div className="chatWIndow--btn">
-                        <InsertEmoticonIcon style={{color: '#919191'}} />
+                    <div
+                        className="chatWIndow--btn"
+                        onClick={handleEmojiClose}
+                        style={{width: emojiOpen?40:0}}
+                     >
+                        <CloseIcon style={{color:'#919191'}} />
+                    </div>
+
+                    <div
+                        className="chatWIndow--btn"
+                        onClick={handleEmojiOpen}
+                     >
+                        <InsertEmoticonIcon style={{color: emojiOpen?'#009688':'#919191'}} />
                     </div>   
 
                 </div>
