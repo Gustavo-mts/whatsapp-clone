@@ -6,6 +6,7 @@ import ChatIntro from './components/ChatIntro';
 import ChatWindow from './components/ChatWindow';
 import NewChat from './components/NewChat';
 import Login from './components/Login';
+import Api from './api';
 
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
@@ -34,7 +35,7 @@ function App() {
       name: u.displayName,
       avatar: u.photoURL
     };
-
+    await Api.addUser(newUser);
     setUser(newUser);
   }
 
