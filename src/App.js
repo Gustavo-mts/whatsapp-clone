@@ -15,14 +15,13 @@ import SearchIcon from '@material-ui/icons/Search';
 
 function App() {
 
-  const [chatList, setChatList] = useState([
-    {chatId: 1, title: 'fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 2, title: 'fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 3, title: 'fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar2.png'},
-    {chatId: 4, title: 'fulano de tal', image: 'https://www.w3schools.com/howto/img_avatar2.png'}
-  ])
+  const [chatList, setChatList] = useState([]);
   const [activeChat, setActiveChat] = useState({});
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({
+      id: 'XpYt6FAIcdTX92I5knhR2rwRsDb2',
+      name: 'Gustavo Martins',
+      avatar: 'https://graph.facebook.com/998168764303162/picture'
+  });
   const [showNewChat, setShowNewChat] = useState(false);
 
   const handleNewChat = () => {
