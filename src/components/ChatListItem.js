@@ -14,7 +14,7 @@ export default ({onClick, active, data}) => {
             minutes = minutes < 10 ? '0'+minutes : minutes;
             setTime(`${hours}:${minutes}`);
         }
-    }, [])
+    }, [data]);
 
     return (
         <div 
