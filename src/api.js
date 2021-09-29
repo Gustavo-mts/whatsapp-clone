@@ -35,5 +35,38 @@ export default  {
         });
 
         return list;
+    }, addNewChat: async (user, user2) => {
+        let newChat = await db.collection('chats').add({
+            messages: [],
+            users:[user.id, user2.id]
+        });
+
+        db.collection('user').doc(user.id).update({
+            chats: firebase.firestore.FieldValue.arrayUnion({
+                chatId: newChat.id,
+                title: user2.name,
+                image: user2.avatar,
+                with: user2.id
+            })
+        });
+
+        db.collection('user').doc(user2.id).update({
+            chats: firebase.firestore.FieldValue.arrayUnion({
+                chatId: newChat.id,
+                title: user.name,
+                image: user.avatar,
+                with: user.id
+            })
+        });
+    },
+    onChatList:(userId, setChatList) => {
+        return db.collection('user').doc(userId).onSnapshot((doc)=>{
+            if(doc.exists) {
+                let data = doc.data();
+                if(data.chats) {
+                    setChatList(data.chats);
+                }
+            }
+        })
     }
 }
