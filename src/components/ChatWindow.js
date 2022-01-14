@@ -30,7 +30,6 @@ export default({user, data}) => {
     const [users, setUsers] = useState([]);
 
     useEffect(()=>{
-
         setList([]);
         let unsub = Api.onChatContent(data.chatId, setList, setUsers);
         return unsub;
