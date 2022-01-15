@@ -2,4 +2,3 @@
 base = ""
 command = "CI= npm run build"
 pusblish = "build"
-pusblish = "build"
